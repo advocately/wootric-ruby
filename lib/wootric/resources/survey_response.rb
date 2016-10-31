@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   class SurveyResponse < Resource
     self.path = "/responses"
     self.record_key = :responses

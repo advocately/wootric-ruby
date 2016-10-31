@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   module Operations
     module All
       def self.included(klass)
@@ -6,7 +6,7 @@ module Satismeter
       end
 
       module ClassMethods
-        def all(opts = {}, client = Satismeter.shared_client)
+        def all(opts = {}, client = Wootric.shared_client)
           opts = Utils.serialize_values(opts)
           json = client.get_json(path, opts)
 

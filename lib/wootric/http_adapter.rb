@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   class HTTPAdapter
     REQUEST_CLASSES = {
       :get => Net::HTTP::Get,

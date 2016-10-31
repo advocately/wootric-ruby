@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   module Utils
     def self.eigenclass(object)
       class << object; self; end
@@ -57,5 +57,5 @@ module Satismeter
   end
 end
 
-# Satismeter::Utils.symbolize_keys([1, {'goo' => { 'bar' => 1, :gyp => ['x'] }, foo: Object.new }])
-# URI.unescape Satismeter::Utils.to_query(foo: 1, gyp: { sum: 1, welp: ['a','b'] })
+# Wootric::Utils.symbolize_keys([1, {'goo' => { 'bar' => 1, :gyp => ['x'] }, foo: Object.new }])
+# URI.unescape Wootric::Utils.to_query(foo: 1, gyp: { sum: 1, welp: ['a','b'] })

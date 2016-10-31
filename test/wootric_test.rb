@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class SatismeterTest < Minitest::Test
+class WootricTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::Satismeter::VERSION
+    refute_nil ::Wootric::VERSION
   end
 
   def test_it_does_something_useful

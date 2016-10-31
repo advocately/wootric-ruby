@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   module Operations
     module Retrieve
       def self.included(klass)
@@ -11,7 +11,7 @@ module Satismeter
 
       module Pluralton
         module ClassMethods
-          def retrieve(id, opts = {}, client = Satismeter.shared_client)
+          def retrieve(id, opts = {}, client = Wootric.shared_client)
             opts = Utils.serialize_values(opts)
             json = client.get_json(path(id), opts)
             new(json)
@@ -25,7 +25,7 @@ module Satismeter
 
       module Singleton
         module ClassMethods
-          def retrieve(opts = {}, client = Satismeter.shared_client)
+          def retrieve(opts = {}, client = Wootric.shared_client)
             opts = Utils.serialize_values(opts)
             json = client.get_json(path, opts)
             new(json)

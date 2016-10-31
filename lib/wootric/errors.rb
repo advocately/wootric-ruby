@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   class Error < StandardError
     def initialize(response)
       @response = response

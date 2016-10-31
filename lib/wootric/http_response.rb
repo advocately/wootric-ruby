@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   class HTTPResponse
     attr_reader :status_code, :headers, :body
 

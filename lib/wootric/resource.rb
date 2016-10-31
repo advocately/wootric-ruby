@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   class Resource
     class << self
       attr_accessor :path, :record_key

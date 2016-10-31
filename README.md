@@ -1,38 +1,39 @@
-# Satismeter API Ruby Client
+# Wootric API Ruby Client
 
-Unofficial Ruby client for the [Satismeter API](https://github.com/satismeter/knowledge-base/wiki/API-for-export-CSV,-JSON).
+Unofficial Ruby client for the [Wootric API](https://github.com/wootric/knowledge-base/wiki/API-for-export-CSV,-JSON).
 
 ## Installation
 
-Add `gem 'satismeter'` to your application's Gemfile, and then run `bundle` to install.
+Add `gem 'wootric'` to your application's Gemfile, and then run `bundle` to install.
 
 ## Configuration
 
-To get started, you need to configure the client with your secret API key. If you're using Rails, you should add the following to new initializer file in `config/initializers/satismeter.rb`.
+To get started, you need to configure the client with your secret API key. If you're using Rails, you should add the following to new initializer file in `config/initializers/wootric.rb`.
 
 ```ruby
-require 'satismeter'
-Satismeter.api_key = 'YOUR_API_KEY'
-Satismeter.app_id = 'YOUR_API_KEY'
+require 'wootric'
+Wootric.api_key = 'YOUR_API_KEY'
 ```
 
 For further options, read the [advanced configuration section](#advanced-configuration).
 
-**Note:** Your API key is secret, and you should treat it like a password. You can find your API key in your Satismeter account, under *Settings* > *Integrations* > *API Keys*.
+**Note:** Your API key is secret, and you should treat it like a password. You can find your API key in your Wootric account, under *Settings* > *Integrations* > *API Keys*.
 
 
 Retrieving a survey response:
 
 ```ruby
 # Retrieve an existing survey response
-survey_response3 = Satismeter::SurveyResponse.retrieve('123')
+survey_response3 = Wootric::SurveyResponse.retrieve('123')
 ```
 
 Listing survey responses:
 
 ```ruby
 # List all survey responses
-survey_responses = Satismeter::SurveyResponse.all(startDate: Time.now)
+survey_responses = Wootric::SurveyResponse.all(created: {
+  gte: Time.now.to_i
+})
 ```
 
 ## <a name="advanced-configuration"></a> Advanced configuration & testing
@@ -40,26 +41,25 @@ survey_responses = Satismeter::SurveyResponse.all(startDate: Time.now)
 The following options are configurable for the client:
 
 ```ruby
-Satismeter.api_key
-Satismeter.app_id
-Satismeter.api_base_url # default: 'https://app.satismeter.com/api'
-Satismeter.http_adapter # default: Satismeter::HTTPAdapter.new
+Wootric.api_key
+Wootric.app_id
+Wootric.http_adapter # default: Wootric::HTTPAdapter.new
 ```
 
-By default, a shared instance of `Satismeter::Client` is created lazily in `Satismeter.shared_client`. If you want to create your own client, perhaps for test or if you have multiple API keys, you can:
+By default, a shared instance of `Wootric::Client` is created lazily in `Wootric.shared_client`. If you want to create your own client, perhaps for test or if you have multiple API keys, you can:
 
 ```ruby
 # Create an custom client instance, and pass as last argument to resource actions
-client = Satismeter::Client.new(:api_key => 'API_KEY', :app_id => 'APP_ID',
-  :api_base_url => 'https://app.satismeter.com/api',
-  :http_adapter => Satismeter::HTTPAdapter.new)
-metrics_from_custom_client = Satismeter::Metrics.retrieve({}, client)
+client = Wootric::Client.new(:api_key => 'API_KEY',
+  :api_base_url => 'https://api.wootric.com/v1',
+  :http_adapter => Wootric::HTTPAdapter.new)
+metrics_from_custom_client = Wootric::SurveyResponse.retrieve({}, client)
 
-# Or, you can set Satismeter.shared_client yourself
-Satismeter.shared_client = Satismeter::Client.new(:api_key => 'API_KEY', :app_id => 'APP_ID',
-  :api_base_url => 'https://app.satismeter.com/api',
-  :http_adapter => Satismeter::HTTPAdapter.new)
-metrics_from_custom_shared_client = Satismeter::Metrics.retrieve
+# Or, you can set Wootric.shared_client yourself
+Wootric.shared_client = Wootric::Client.new(:api_key => 'API_KEY',
+  :api_base_url => 'https://api.wootric.com/v1',
+  :http_adapter => Wootric::HTTPAdapter.new)
+metrics_from_custom_shared_client = Wootric::SurveyResponse.retrieve
 ```
 
 ## Supported runtimes

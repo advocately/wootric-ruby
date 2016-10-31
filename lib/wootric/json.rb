@@ -1,4 +1,4 @@
-module Satismeter
+module Wootric
   class JSON
     class << self
       if MultiJson.respond_to?(:dump)
