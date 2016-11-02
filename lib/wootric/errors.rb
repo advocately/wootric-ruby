@@ -9,6 +9,12 @@ module Wootric
     end
   end
 
+  class TokenError < Error
+    def to_s
+      "#{@response['error']}: #{@response['error_description']}"
+    end
+  end
+
   class AuthenticationError < Error
     # 401, api auth missing or incorrect
   end

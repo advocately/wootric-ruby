@@ -14,6 +14,7 @@ require 'wootric/resource'
 require 'wootric/operations/all'
 require 'wootric/operations/retrieve'
 require 'wootric/resources/survey_response'
+require 'wootric/resources/contact'
 
 require 'wootric/errors'
 require 'wootric/http_response'

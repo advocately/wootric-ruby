@@ -9,8 +9,7 @@ module Wootric
         def all(opts = {}, client = Wootric.shared_client)
           opts = Utils.serialize_values(opts)
           json = client.get_json(path, opts)
-
-          EnumerableResourceCollection.new(json[record_key].map { |attributes| new(attributes) })
+          EnumerableResourceCollection.new(json.map { |attributes| new(attributes) })
         end
       end
     end

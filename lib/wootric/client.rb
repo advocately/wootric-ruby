@@ -10,20 +10,20 @@ module Wootric
     end
 
     def get_json(path, params = {})
-      request(:get, path, params)
+      perform_request(:get, path, params)
     end
 
-    def post_json(path, params = {})
-      request(:post, path, params)
-    end
+    # def post_json(path, params = {})
+    #   perform_request(:post, path, params)
+    # end
 
-    def put_json(path, params = {})
-      request(:put, path, params)
-    end
+    # def put_json(path, params = {})
+    #   perform_request(:put, path, params)
+    # end
 
-    def delete_json(path, params = {})
-      request(:delete, path, params)
-    end
+    # def delete_json(path, params = {})
+    #   perform_request(:delete, path, params)
+    # end
 
   private
 

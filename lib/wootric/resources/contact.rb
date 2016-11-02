@@ -1,6 +1,6 @@
 module Wootric
-  class SurveyResponse < Resource
-    self.path = "/responses"
+  class Contact < Resource
+    self.path = "/end_users"
     attr_accessor :meta
 
     include Operations::All
