@@ -31,8 +31,12 @@ Listing survey responses:
 
 ```ruby
 # List all survey responses
-survey_responses = Wootric::SurveyResponse.all(created: {
-  gte: Time.now.to_i
+survey_responses = Wootric::SurveyResponse.all({
+  created: {
+    gte: 1.day.ago.to_i
+  },
+  page: 3,
+  per_page: 50
 })
 ```
 
