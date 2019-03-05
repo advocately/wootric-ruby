@@ -1,6 +1,6 @@
 # Wootric API Ruby Client
 
-Unofficial Ruby client for the [Wootric API](https://github.com/wootric/knowledge-base/wiki/API-for-export-CSV,-JSON).
+Unofficial Ruby client for the [Wootric API](https://docs.wootric.com/api/).
 
 ## Installation
 
@@ -14,8 +14,6 @@ To get started, you need to configure the client with your secret API key. If yo
 require 'wootric'
 Wootric.api_key = 'YOUR_API_KEY'
 ```
-
-For further options, read the [advanced configuration section](#advanced-configuration).
 
 **Note:** Your API key is secret, and you should treat it like a password. You can find your API key in your Wootric account, under *Settings* > *Integrations* > *API Keys*.
 
